@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LP6E9NDEFG"></script>
+  <script src="Assets/analytics.js"></script>
+  <link rel="icon" href="Assets/logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <div class="nav-logo">
+      <a href="/">
+        <img class="exclude" src="Assets/logo.png" alt="TUGH logo">
+      </a>
+    </div>
+    <div class="nav-buttons">
+      <a href="Games">Games</a>
+    </div>
+  </nav>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+  <div id="particles-js"></div>
+
+  <script>
+    particlesJS("particles-js", {
+        "particles": {
+            "number": {"value": 80},
+            "color": {"value": "#ffffff"},
+            "shape": {"type": "circle"},
+            "opacity": {"value": 0.5},
+            "size": {"value": 3},
+            "line_linked": {"color": "#ffffff", "opacity": 0.4, "width": 1},
+            "move": {"speed": 6, "direction": "top"}
+        },
+        "interactivity": {
+            "events": {"onhover": {"enable": true, "mode": "grab"}},
+            "modes": {"grab": {"distance": 140}}
+        }
+    });
+  </script>
+
+  <title>Treme's UGH</title>
+
+
+  <h1>Treme's Ultimate Game Hub</h1>
+
+  &nbsp;
+
+  <center>
+    <form id="uv-form">
+      <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden"/> 
+      <input id="uv-address" type="text" placeholder="Search Google or type an URL" class="form__input"/>
+    </form>
+    <div class="desc left-margin">
+      <p id="uv-error"></p>
+      <pre id="uv-error-code"></pre>
+    </div>
+  </div>
+  <script src="uv/uv.bundle.js" defer></script>
+  <script src="uv/uv.config.js" defer></script>
+  <script src="register-sw.js" defer></script>
+  <script src="search.js" defer></script>
+  <script src="index.js" defer></script>
+  </div>
+  </center>
+
+  <center> 
+    <button class="blank-button" onclick="openGame()">Open About:Blank Tab</button>
+    <script>
+    var urlObj = new window.URL(window.location.href);
+    var url = window.location;
+  
+    if (url) {
+        var win;
+  
+        document.querySelector('button').onclick = function() {
+            if (win) {
+                win.focus();
+            } else {
+                win = window.open();
+                win.document.body.style.margin = '0';
+                win.document.body.style.height = '100vh';
+                var iframe = win.document.createElement('iframe');
+                iframe.style.border = 'none';
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                iframe.style.margin = '0';
+                iframe.src = url;
+                win.document.body.appendChild(iframe);
+                window.location.replace("https://ixl.com");
+  
+                var interval = setInterval(function() {
+                    if (win.closed) {
+                        clearInterval(interval);
+                        win = undefined;
+  
+                    }
+                }, 500);
+  
+  
+            }
+        };
+    }
+    </script>
+  </center>
+  &nbsp;
+  <center>
+    <button style="margin-bottom: 16px;" onclick="location.href = './Games';">Games</button>
+  </center>
+  <center>
+    <button style="margin-bottom: 16px;" onclick="location.href = './Assets/L/';">Alt Links</button>
+  </center>
+</body>
+</html>
